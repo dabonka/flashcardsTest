@@ -1,13 +1,22 @@
 <head>
   <title>Флэшкарточкер</title>
-  <link rel="stylesheet" href="application.css">
+<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 </head>
 
 <body>
   <section id="container">
+
+    <header class="clearfix">
+      <h1>Флэшкарточкер</h1>
+      <ul class="navigation-links">
+        <li><a href="#">Все карточки</a></li>
+        <li><a href="#">Добавить карточку</a></li>
+      </ul>
+    </header>
+
     <section>
       <p style="font-size: 22px;">
-        Первый в мире удобный менеджер флеш-карточек. Именно так.  взято из home index.html.erb
+        Первый в мире удобный менеджер флеш-карточек. Именно так.
       </p>
     </section>
 
