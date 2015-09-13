@@ -1,0 +1,22 @@
+<head>
+  <title>Cards</title>
+  <link rel="stylesheet" href="application.css">
+</head>
+
+<h1>Listing cards</h1>
+ 
+<table>
+  <tr>
+    <th>Original Text</th>
+    <th>Translated Text</th>
+	<th>Review Date</th>
+  </tr>
+ 
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+	  <td><%= card.review_date.strftime("%d/%m/%Y") %></td>
+    </tr>
+  <% end %>
+</table>
