@@ -1,0 +1,16 @@
+<h1>New cards</h1>
+<%= form_for :card do |f| %>
+  <p>
+    <%= f.label :original %><br>
+    <%= f.text_field :original %>
+  </p>
+ 
+  <p>
+    <%= f.label :translate %><br>
+    <%= f.text_field :translate %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
