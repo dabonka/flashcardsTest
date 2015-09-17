@@ -3,7 +3,20 @@
   <link rel="stylesheet" href="application.css">
 </head>
 
-<h1>Card</h1>
+<table>
+  <tr>
+    <th>Original Text</th>
+    <th>Translated Text</th>
+	<th>Review Date</th>
+  </tr>
+ 
+
+    <tr>
+      <td><%= @card.original_text(id) %></td>
+      <td><%= @card.translated_text(id) %></td>
+    </tr>
+
+</table>
 
 
 
