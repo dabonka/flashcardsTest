@@ -13,17 +13,11 @@ class CardsController < ApplicationController
   end
   
 def create
-  @card = Card.new(card_params)
+  @card = Card.new({:original_text => params[:original], :translated_text => params[:translate]})
  
   @card.save
   redirect_to @card
 end
     
 	
-end
-
-private
-
-def card_params
-  params.require(:card).permit(:original_text, :translated_text, :review_date)
 end
