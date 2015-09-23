@@ -1,3 +1,7 @@
+class Card < ActiveRecord::Base
+  validates :original_text, :translated_text, :review_date, presence: true
+end
+
 class EqualValidator < ActiveModel::Validator
   def validate(card)
     if card.original_text.downcase == card.translated_text.downcase
@@ -7,10 +11,9 @@ class EqualValidator < ActiveModel::Validator
 end
 
 class Card < ActiveRecord::Base
-  validates :original_text, :translated_text, :review_date, presence: true
   validates_with EqualValidator
 end
 
 def set_review_date
-  review_date = DateTime.now = 3.days
+  review_date = DateTime.now + 3.days
 end
