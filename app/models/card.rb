@@ -4,7 +4,7 @@ end
 
 class EqualValidator < ActiveModel::Validator
   def validate(card)
-    if (card.original_text !== nil) && (card.translated_text !== nil) then
+    if ((card !== nil) && (card.original_text !== nil) && (card.translated_text !== nil)) then
       if card.original_text.downcase == card.translated_text.downcase
         translated_text.errors[:base] << "The values of original text and translated text should be different"
       end
