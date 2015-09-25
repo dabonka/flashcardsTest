@@ -13,18 +13,20 @@ class CardsController < ApplicationController
 	end
   
 	def create
-	  @card = Card.new(strong_params)
+	  @card = Card.new(cards_params)
 	 
 	  @card.save
 	  redirect_to @card
 	end
+
+  private
     
 	def set_review_date
 	  review_date = DateTime.now + 3.days
 	end
 
-	def strong_params
-	  params.require(:@card).permit(:original_text, :translated_text, :review_date)
+	def cards_params
+	  params.require(:card).permit(:original_text, :translated_text, :review_date)
 	end
 	
 end
