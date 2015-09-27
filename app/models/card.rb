@@ -15,7 +15,7 @@ def set_review_date
   review_date = DateTime.now + 3.days
 end
 
-  before_create :set_review_date
+  before_save :set_review_date
 
 
   validates :original_text, :translated_text, :review_date, presence: true
