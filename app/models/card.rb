@@ -14,14 +14,14 @@ class Card < ActiveRecord::Base
 
 def set_review_date
   review_date = DateTime.now + 3.days
-
+  logger.debug "def set_review_date from debug"
+  logger.info "def set_review_date from info"
 end
 
-<<<<<<< HEAD
+  logger.debug "before_validation :set_review_date from debug"
+  logger.info "before_validation :set_review_date from info"
   before_validation :set_review_date
-=======
-  before_save :set_review_date
->>>>>>> d58cf347e5900fad50fdff280ac87c587177e241
+
 
 
   validates :original_text, :translated_text, :review_date, presence: true

@@ -9,12 +9,14 @@ class CardsController < ApplicationController
 	end
   
 	def new
-	logger.debug "def new"
+  logger.debug "def new from debug"
+  logger.info "def new from info"
 	  @card = Card.new
 	end
   
 	def create
-	   logger.debug "def create"
+  logger.debug "def create from debug"
+  logger.info "def create from info"
 	  @card = Card.new(cards_params)
 	 
 	  @card.save!
@@ -25,7 +27,8 @@ class CardsController < ApplicationController
     
 
 	def cards_params
-	logger.info "cards_params"
+  logger.debug "def cards_params from debug"
+  logger.info "def cards_params from info"
 	  params.require(:card).permit(:original_text, :translated_text, :review_date)
 	end
 	
