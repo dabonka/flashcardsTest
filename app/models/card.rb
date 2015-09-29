@@ -17,7 +17,11 @@ def set_review_date
 
 end
 
+<<<<<<< HEAD
   before_validation :set_review_date
+=======
+  before_save :set_review_date
+>>>>>>> d58cf347e5900fad50fdff280ac87c587177e241
 
 
   validates :original_text, :translated_text, :review_date, presence: true

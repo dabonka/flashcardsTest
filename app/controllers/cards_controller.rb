@@ -23,9 +23,6 @@ class CardsController < ApplicationController
 
   private
     
-	def set_review_date
-	  review_date = DateTime.now + 3.days
-	end
 
 	def cards_params
 	logger.info "cards_params"
