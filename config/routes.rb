@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :cards
   get "/" => "home#index"
-  # post "/cards/new"    =>  "cards#create"
-
 end
 
   # get "home" => "home#index"
