@@ -1,0 +1,15 @@
+<%= form_for @card do |f| %>
+<p>
+  <%= f.label :original %><br>
+  <%= f.text_field :original_text %>
+</p>
+
+<p>
+  <%= f.label :translate %><br>
+  <%= f.text_field :translated_text %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
