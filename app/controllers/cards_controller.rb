@@ -36,7 +36,7 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-    private
+  private
 
   def cards_params
     params.require(:card).permit(:original_text, :translated_text, :review_date)
