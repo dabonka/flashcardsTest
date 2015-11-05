@@ -1,18 +1,13 @@
 require "nokogiri"
 require "open-uri"
 
-page = Nokogiri::HTML(open("http://lingvotutor.ru/1500-samyx-upotreblyaemyx-slov-k-toefl"))
+doc = Nokogiri::HTML(open("http://www.papahuhu.com/vocabulary/itwords.html"))
 
-word_list = []
-
-page.search("th.column-1")[0].each do |row|
-  original = row.css('th.column-1')[0].text
-  translated = row.css('th.column-3')[0].text
-  word_list << Hash[original, translated]
+doc.css("tr").each do |tr|
+  unless (tr.css("td")[0].nil?) || (tr.css("td")[2].nil?)
+    Card.create!( original_text: tr.css("td")[0].content, translated_text: tr.css("td")[2].content)
+  end
 end
-# word_list.each do |original, translated|
-#   Card.create( original_text: original, translated_text: translated )
-# end
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -20,3 +15,4 @@ end
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#  Card.create!( original_text: tr.css("span.cn")[0].text, translated_text: tr.css("td")[2].text )
