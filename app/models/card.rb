@@ -14,7 +14,7 @@ class Card < ActiveRecord::Base
     self.review_date = DateTime.now + 3.days
   end
 
-  scope :select_cards_for_learning, -> { where("review_date <= ?", Time.now).limit(1).order("RANDOM()").first}
+  scope :select_cards_for_learning, -> { where("review_date <= ?", Time.now).order("RANDOM()").first}
 
   def check_translation(mytext)
    self.translated_text.mb_chars.downcase.strip == mytext.mb_chars.downcase.strip
