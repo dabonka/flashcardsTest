@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @card = Card.change_date
+    @card = Card.select_cards_for_learning
   end
 
   def compare
@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       @card.save!
       flash[:notice] = "Правильно!"
     else
-      flash[:notice] = "Ошибка!"
+      flash[:error] = "Ошибка!"
     end
    redirect_to "/"
   end

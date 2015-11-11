@@ -25,11 +25,16 @@
 		<button>Проверить!</button>
 	<% end %>
 
-	<%= flash[:notice] %>
+	<% if flash[:notice] %>
+   <p class="notice">Правильно!</p>
+	<% end %>
+
+	<% if flash[:error] %>
+    <p class="error">Ошибка!</p>
+	<% end %>
 
 
-
-  <table>
+<table>
     <tr>
       <th>Original Text</th>
       <th>Translated Text</th>
