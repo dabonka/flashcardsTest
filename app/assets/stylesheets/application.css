@@ -40,6 +40,13 @@
   margin: 0 16px;
 }
 
+p.notice {
+    color: #40ad43;
+}
+
+p.error {
+    color: #cb1427;
+}
 
 
 /* MISC */
