@@ -14,6 +14,12 @@ class Card < ActiveRecord::Base
     self.review_date = DateTime.now + 3.days
   end
 
+  scope :change_date, -> { where("review_date <= ?", Time.now).limit(1).order("RANDOM()").first}
+
+  def check_translation(mytext)
+   self.translated_text.mb_chars.downcase.strip == mytext.mb_chars.downcase.strip
+  end
+
   before_validation :set_review_date
   validates :original_text, :translated_text, :review_date, presence: true
   validates_with EqualValidator
