@@ -11,7 +11,7 @@ end
 class Card < ActiveRecord::Base
 
   def set_review_date
-    self.review_date = DateTime.now + 3.days
+    self.review_date = Date.current + 3.days
   end
 
   scope :select_cards_for_learning, -> { where("review_date <= ?", Time.now).order("RANDOM()").first}
