@@ -1,4 +1,4 @@
 test:
-  database: test_card
+  adapter: postgresql
+  database: travis_ci_test
   username: postgres
-  password: 123456
