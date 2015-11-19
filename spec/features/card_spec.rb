@@ -11,6 +11,7 @@ describe  "Cards", :type => :feature do
     expect(page).to have_content 'Original Text'
   end
 
+  
   it  "check_translation" do
     visit '/'
     fill_in 'user_variant', :with => :card_translated_text
