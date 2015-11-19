@@ -20,4 +20,5 @@ describe  "Cards", :type => :feature do
     click_button 'Проверить!'
     expect(page).to have_content 'Флэшкарточкер'
   end
+  
 end
