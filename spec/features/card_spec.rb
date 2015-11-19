@@ -11,8 +11,10 @@ describe  "Cards", :type => :feature do
     expect(page).to have_content 'Original Text'
   end
 
-  
+
   it  "check_translation" do
+    card = FactoryGirl.create(:card)
+    card.save!
     visit '/'
     fill_in 'user_variant', :with => :card_translated_text
     click_button 'Проверить!'
