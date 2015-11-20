@@ -6,7 +6,7 @@ FactoryGirl.define do
   factory :card do
     original_text "Word"
     translated_text "Slovo"
-  #  review_date 20.days.ago
-  #  id 1000
+    #  review_date Date.current
+    #  id 1000
   end
 end
