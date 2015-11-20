@@ -4,7 +4,7 @@ require 'capybara/rspec'
 
 describe  "Cards", :type => :feature do
 
-    let(:card) {create :card}
+  let(:card) {create :card} # Запускаем фабрику создания карточки, созданное значение действительно до конца describe  "Cards"
 
   it  "Input new card" do
     visit new_card_path
