@@ -1,52 +1,44 @@
-<body>
-  <section id="container">
+<section id="container">
+  <header class="clearfix">
+    <h1>Флэшкарточкер</h1>
+    <ul class="navigation-links">
+      <li><%= link_to 'Все карточки', cards_path %></li>
+      <li><%= link_to 'Добавить карточку', new_card_path %></li>
+      </ul>
+  </header>
 
-    <header class="clearfix">
-      <h1>Флэшкарточкер</h1>
-      <ul class="navigation-links">
-        <li><%= link_to 'Все карточки', cards_path %></li>
-        <li><%= link_to 'Добавить карточку', new_card_path %></li>
-        </ul>
-    </header>
-
-    <section>
-      <p style="font-size: 22px;">
-        Первый в мире удобный менеджер флеш-карточек. Именно так.
-      </p>
-    </section>
-
+  <section>
+    <p style="font-size: 22px;">
+      Первый в мире удобный менеджер флеш-карточек. Именно так.
+    </p>
   </section>
+</section>
+
+<% if flash[:notice] %>
+ <p class="notice">Правильно!</p>
+<% end %>
+
+<% if flash[:error] %>
+  <p class="error">Ошибка!</p>
+<% end %>
 
 
-
+<% if @card.present? %>
   <%= form_tag home_path do %>
     <%= text_field_tag :user_variant %>
-    <%= hidden_field_tag 'card_id', @card.id%>
+    <%= hidden_field_tag 'card_id', @card.id %>
 		<button>Проверить!</button>
 	<% end %>
-
-	<% if flash[:notice] %>
-   <p class="notice">Правильно!</p>
-	<% end %>
-
-	<% if flash[:error] %>
-    <p class="error">Ошибка!</p>
-	<% end %>
-
-
-<table>
+  <table>
     <tr>
       <th>Original Text</th>
       <th>Translated Text</th>
       <th>Review Date</th>
     </tr>
-
-
-      <tr>
-        <td><%= @card.original_text %></td>
-        <td><%= @card.translated_text %></td>
-        <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
-      </tr>
+    <tr>
+      <td><%= @card.original_text %></td>
+      <td><%= @card.translated_text %></td>
+      <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
+    </tr>
   </table>
-
-</body>
+<% end %>
