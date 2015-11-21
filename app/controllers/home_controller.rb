@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @card = Card.select_cards_for_learning.sample
+    # @card = Card.select_cards_for_learning.sample
+    @card = Card.select_cards_for_learning
   end
 
   def compare
