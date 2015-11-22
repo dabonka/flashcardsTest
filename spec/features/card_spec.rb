@@ -14,10 +14,10 @@ describe  "Cards", :type => :feature do
     expect(page).to have_content 'Original Text'
   end
 
-  it  "check_translation" do
-    visit root_path
-    fill_in 'user_variant', with: :card_translated_text
-    click_button 'Проверить!'
-    expect(page).to have_content 'Флэшкарточкер'
-  end
+  # it  "check_translation" do
+  #  visit root_path
+  #  fill_in 'user_variant', with: :card_translated_text
+  #  click_button 'Проверить!'
+  #  expect(page).to have_content 'Флэшкарточкер'
+  #end
 end
