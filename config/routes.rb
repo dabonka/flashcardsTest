@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  root :to => "home#index"
+  
   resources :cards
-  get "/" => "home#index"
   post "home" => "home#compare"
 end
 
@@ -60,4 +61,3 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-

@@ -9,7 +9,7 @@ default: &default
   database: card
   pool: 5
   timeout: 5000
-  username: carduser
+  username: postgres
   password: 123456
   host: localhost
   
@@ -17,7 +17,7 @@ default: &default
 development:
   <<: *default
   database: card
-  username: carduser
+  username: postgres
   password: 123456
 
 # Warning: The database defined as "test" will be erased and
@@ -26,7 +26,7 @@ development:
 test:
   <<: *default
   database: test_card
-  username: carduser
+  username: postgres
   password: 123456
 
 production:
