@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   resources :cards
   post "home" => "home#compare"
+
+  resources :users
 end
 
   # get "home" => "home#index"
