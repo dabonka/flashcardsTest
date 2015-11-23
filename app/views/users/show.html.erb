@@ -3,5 +3,21 @@
   <link rel="stylesheet" href="application.css">
 </head>
 
+<table>
+
+  <tr>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+
+  <tr>
+    <td><%= @user.email %></td>
+    <td><%= @user.password %></td>
+  </tr>
+
+</table>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Home', root_path %>
 
 

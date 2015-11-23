@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # @users = User.all - список всех юзеров не нужен
   end
 
   def show
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(cards_params)
+    @user = User.new(users_params)
     @user.save!
     redirect_to @user
   end
