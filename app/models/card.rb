@@ -9,6 +9,7 @@ class EqualValidator < ActiveModel::Validator
 end
 
 class Card < ActiveRecord::Base
+  belongs_to :user
 
   def set_review_date
     self.review_date = Date.current + 3.days
