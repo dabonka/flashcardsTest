@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'pg'
+
 gem 'nokogiri'
+
+gem 'sorcery'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
