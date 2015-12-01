@@ -22,7 +22,7 @@ class Card < ActiveRecord::Base
   end
 
   before_validation :set_review_date
-  validates :original_text, :translated_text, :review_date, presence: true
+  validates :original_text, :translated_text, :review_date, :user_id, presence: true
   validates_with EqualValidator
   
 end

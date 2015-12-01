@@ -9,6 +9,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    @card.user_id = current_user.id
   end
 
   def edit
@@ -17,6 +18,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(cards_params)
+    @card.user_id = current_user.id
     @card.save!
     redirect_to @card
   end
@@ -39,7 +41,7 @@ class CardsController < ApplicationController
   private
 
   def cards_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id)
   end
 
 end
