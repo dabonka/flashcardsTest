@@ -29,19 +29,11 @@ ActiveRecord::Schema.define(version: 20151130205551) do
 
   create_table "users", force: true do |t|
     t.text     "email"
+    t.text     "password"
+    t.text     "crypted_password"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "salt"
-    t.string   "crypted_password"
-    t.string   "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
-    t.string   "activation_state"
-    t.string   "activation_token"
-    t.datetime "activation_token_expires_at"
   end
-
-  add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
 end
