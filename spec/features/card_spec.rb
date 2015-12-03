@@ -6,11 +6,12 @@ describe  "Cards", :type => :feature do
 
   before do
     user = FactoryGirl.create(:user)
-    visit login_path
-    fill_in 'email', :with => user.email
-    fill_in 'password', :with => 'password'
-    check 'remember'
-    click_button 'Login'
+    # visit login_path
+    # fill_in 'email', :with => user.email
+    # fill_in 'password', :with => 'password'
+    # check 'remember'
+    # click_button 'Login'
+    login(user)
   end
 
   let!(:card) {create :card, review_date: Date.current} # Запускаем фабрику создания карточки, созданное значение действительно до конца describe  "Cards"

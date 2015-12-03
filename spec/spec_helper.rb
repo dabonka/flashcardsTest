@@ -18,6 +18,9 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
 RSpec.configure do |config|
+
+# config.include AuthenticationForFeatureRequest, type: :feature
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -91,7 +94,17 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
+  #module AuthenticationForFeatureRequest
+    def login user, password = 'login'
+      user.update_attributes password: password
+
+      page.driver.post sessions_url, {email: user.email, password: password}
+      visit root_url
+    end
+  #end
+
   Capybara.configure do |c|
     c.default_driver = :rack_test
   end
 end
+

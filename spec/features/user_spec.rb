@@ -13,6 +13,16 @@ describe  "Users", :type => :feature do
     expect(page).to have_content 'Email'
   end
 
+ #  it  "Login user" do
+ #    user = FactoryGirl.create(:user)
+ #    visit login_path
+ #    fill_in 'email', :with => user.email
+ #    fill_in 'password', :with => 'password'
+ #    check 'remember'
+ #    click_button 'Login'
+ #    expect(page).to have_content 'Login successful'
+ #    end
+
    it  "Login user" do
      user = FactoryGirl.create(:user)
      visit login_path
@@ -22,4 +32,5 @@ describe  "Users", :type => :feature do
      click_button 'Login'
      expect(page).to have_content 'Login successful'
      end
+
 end
