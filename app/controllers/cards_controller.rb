@@ -8,8 +8,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = Card.new
-    @card.user_id = current_user.id
+    @card = current_user.cards.new
   end
 
   def edit
@@ -17,8 +16,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(cards_params)
-    @card.user_id = current_user.id
+    @card = current_user.cards.create(cards_params)
     @card.save!
     redirect_to @card
   end
