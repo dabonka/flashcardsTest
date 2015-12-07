@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
   def index
      if current_user != nil
-      @card = Card.select_cards_for_learning(current_user.id).first
+      # @card = Card.select_cards_for_learning(current_user.id).first
+       @card = current_user.cards.first
      end
    end
 
