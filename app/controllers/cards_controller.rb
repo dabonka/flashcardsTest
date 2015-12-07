@@ -1,10 +1,11 @@
 class CardsController < ApplicationController
+  before_action :require_login
   def index
-    if current_user != nil
+    # if current_user != nil
       @cards = Card.select_cards_by_user_id(current_user.id)
-    else
-      @cards = Card.all
-    end
+    # else
+      # @cards = Card.all
+    # end
   end
 
   def show
@@ -41,6 +42,10 @@ class CardsController < ApplicationController
   end
 
   private
+
+  def require_login
+    redirect_to new_user_path unless current_user
+  end
 
   def cards_params
     params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id)
