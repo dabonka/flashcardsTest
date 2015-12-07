@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @card = Card.select_cards_for_learning.first
-  end
+     if current_user != nil
+      @card = Card.select_cards_for_learning(current_user.id).first
+     end
+   end
 
   def compare
     @card = Card.find(params[:card_id])
