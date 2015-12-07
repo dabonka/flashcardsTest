@@ -1,11 +1,7 @@
 class CardsController < ApplicationController
   before_action :require_login
   def index
-    # if current_user != nil
       @cards = Card.select_cards_by_user_id(current_user.id)
-    # else
-      # @cards = Card.all
-    # end
   end
 
   def show
