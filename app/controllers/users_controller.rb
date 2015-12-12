@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-    # @users = User.all - список всех юзеров не нужен
   end
 
   def show
@@ -8,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+   @user = User.new
   end
 
   def edit
@@ -39,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end

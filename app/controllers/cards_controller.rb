@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
+  before_action :require_login
   def index
-    @cards = Card.all
+      @cards = Card.select_cards_by_user_id(current_user.id)
   end
 
   def show
@@ -8,7 +9,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = Card.new
+    @card = current_user.cards.new
   end
 
   def edit
@@ -16,7 +17,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(cards_params)
+    @card = current_user.cards.create(cards_params)
     @card.save!
     redirect_to @card
   end
@@ -38,8 +39,12 @@ class CardsController < ApplicationController
 
   private
 
+  def require_login
+    redirect_to new_user_path unless current_user
+  end
+
   def cards_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id)
   end
 
 end

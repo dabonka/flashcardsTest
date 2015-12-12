@@ -4,7 +4,13 @@ require 'capybara/rspec'
 
 describe  "Cards", :type => :feature do
 
-  let!(:card) {create :card, review_date: Date.current} # Запускаем фабрику создания карточки, созданное значение действительно до конца describe  "Cards"
+  let!(:user) { create(:user) }
+
+  before(:each) do
+    login("admin@admin.com", "password")
+  end
+
+  let!(:card) {create :card, review_date: Date.current, user: user} # Запускаем фабрику создания карточки, созданное значение действительно до конца describe  "Cards"
 
   it  "Input new card" do
     visit new_card_path
