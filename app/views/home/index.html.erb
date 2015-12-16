@@ -26,6 +26,7 @@
   <%= form_tag home_path do %>
     <%= text_field_tag :user_variant%>
     <%= hidden_field_tag 'card_id', @card.id %>
+    <%= image_tag @card.avatar.url(:medium) %>
 		<button>Проверить!</button>
 	<% end %>
   <table>

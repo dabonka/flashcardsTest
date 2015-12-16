@@ -11,6 +11,10 @@ end
 class Card < ActiveRecord::Base
   belongs_to :user
 
+  has_attached_file :avatar, styles: { medium: "360x360>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
   def set_review_date
     self.review_date = Date.current + 3.days
   end
@@ -25,5 +29,9 @@ class Card < ActiveRecord::Base
   before_validation :set_review_date
   validates :original_text, :translated_text, :review_date, :user_id, presence: true
   validates_with EqualValidator
+
+  # validates :avatar, attachment_presence: true
+  # validates_with AttachmentPresenceValidator, attributes: :avatar
+  # validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
   
 end
