@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'pg'
-
+gem "paperclip", "~> 4.3"
 gem 'nokogiri'
 
 gem 'sorcery'

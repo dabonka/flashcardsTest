@@ -16,6 +16,7 @@
       <td><%= card.translated_text %></td>
       <td><%= card.review_date.strftime("%d/%m/%Y") %></td>
       <td><%= card.user_id %></td>
+      <td><%= image_tag card.avatar.url(:medium) %></td>
       <td><%= link_to 'Show', card_path(card) %></td>
       <td><%= link_to("Edit", edit_card_path(card) ) %></td>
       <td><%= link_to("Delete",card_path(card), method: :delete, data: { confirm: 'Are you sure?' }) %></td>
