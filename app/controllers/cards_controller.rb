@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :require_login
   def index
-      @cards = Card.select_cards_by_user_id(current_user.id)
+    @cards = Card.select_cards_by_user_id(current_user.id)
   end
 
   def show
@@ -24,11 +24,11 @@ class CardsController < ApplicationController
 
   def update
     @card = Card.find(params[:id])
-      if @card.update(cards_params)
+    if @card.update(cards_params)
       redirect_to @card
     else
       render 'edit'
-    end
+  end
   end
 
   def destroy
@@ -46,5 +46,4 @@ class CardsController < ApplicationController
   def cards_params
     params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id, :avatar)
   end
-
 end
