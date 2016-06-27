@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def index
-     if current_user != nil
-       @card = current_user.cards.first
-     end
+    @card = current_user.cards.first unless current_user.nil?
    end
 
   def compare
@@ -14,6 +12,6 @@ class HomeController < ApplicationController
     else
       flash[:error] = true
     end
-   redirect_to "/"
+    redirect_to '/'
   end
 end
